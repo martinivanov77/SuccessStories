@@ -54,7 +54,11 @@ namespace SitefinityWebApp.DynamicModuleManagerMethods
                     successStoryItem.CreateRelation(thumbnailItem, "Thumbnail");
                 }
 
-                successStoryItem.SetString("UrlName", "SomeUrlName");
+                //Trimming spaces from the Title, then setting it to Lowercase with the .ToLower() method, so it can be used as a unique URL for a newly submitted Success Story
+                var urlName = successStoryWidgetViewModel.Title;
+                var urlNameNoSpaces = urlName.Replace(" ", "");
+
+                successStoryItem.SetString("UrlName", urlNameNoSpaces.ToLower());
                 successStoryItem.SetValue("Owner", SecurityManager.GetCurrentUserId());
                 successStoryItem.SetValue("PublicationDate", DateTime.UtcNow);
 
