@@ -13,12 +13,12 @@
 @using Telerik.Sitefinity.Modules.Pages;
 @using Telerik.Sitefinity.Pages.Model;
 
+<div class="card">
+
     <div class="@Model.CssClass" @Html.InlineEditingAttributes(Model.ProviderName, Model.ContentType.FullName, (Guid)Model.Item.Fields.Id)>
-        <h3 @Html.InlineEditingFieldAttributes("Title", "ShortText")>
+        <h3 class="card-header bg-primary"  @Html.InlineEditingFieldAttributes("Title", "ShortText")>
             @Model.Item.Fields.Title
         </h3>
-
-
 
         @*Start Company field*@
         <div>
@@ -74,3 +74,4 @@
         @*End ProductsUsed field*@
 
     </div>
+</div>

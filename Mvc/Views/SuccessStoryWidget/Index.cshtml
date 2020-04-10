@@ -1,0 +1,69 @@
+@model SitefinityWebApp.MVC.Models.SuccessStoryWidgetViewModel
+
+<div class="card">
+
+    <div class="card-header bg-info">
+        <h1>Share your Success story</h1>
+    </div>
+
+    @using (@Html.BeginForm("Submit", "SuccessStoryWidget", FormMethod.Post))
+    {
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="@Model.Title">Title</label>
+                <input type="text" class="input-group-lg w-100" name="Title" required />
+            </div>
+
+            <div class="form-group row">
+                <label for="@Model.Description">Description</label>
+                <textarea class="form-control" name="Description" required></textarea>
+            </div>
+
+            <div class="form-group row">
+                <label for="@Model.SummaryDescription">Summary Description</label>
+                <textarea class="form-control" name="SummaryDescription" required></textarea>
+            </div>
+
+            <div class="form-group row">
+                <label for="@Model.Company">Company</label>
+                <input type="text" class="input-group-lg w-50" name="Company" required />
+            </div>
+
+            <div class="form-group row">
+                <label for="@Model.CompanyWebsite">Company Website</label>
+                <input type="text"  class="input-group-lg w-50" name="CompanyWebsite" required />
+            </div>
+
+            <div class="form-group row">
+                <label for="@Model.ProductsUsed">Products Used</label>
+                <input type="text" class="input-group-lg w-50" name="ProductsUsed" required />
+            </div>
+
+            <div class="form-group row">
+                <label for="@Model.Industry">Industry</label>
+                <input type="text" class="input-group-lg w-50" name="Industry" required />
+            </div>
+
+            <div class="form-group row">
+                <div class="custom-file">
+                    <label for="@Model.Thumbnail">Company Logo</label>
+                    <input type="file" name="Thumbnail" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <button type="submit" class="btn btn-primary">Submit Success Story</button>
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+@if (@Model.Industry != null)
+{
+    <script type="text/javascript">
+        $(function () {
+            alert("Success story submitted!");
+        });
+    </script>
+}
